@@ -26,20 +26,4 @@ paths:
     $ref: paths/trade/orderbook.yaml
   /coinmarketcap/trades/{market_pair}:
     $ref: paths/trade/trades.yaml
-components:
-  securitySchemes:
-    main_auth:
-      type: oauth2
-      flows:
-        implicit:
-          authorizationUrl: 'http://example.com/api/oauth/dialog'
-          scopes:
-            'read:users': read users info
-            'write:users': modify or remove users
-    api_key:
-      type: apiKey
-      in: header
-      name: api_key
-    basic_auth:
-      type: http
-      scheme: basic
+

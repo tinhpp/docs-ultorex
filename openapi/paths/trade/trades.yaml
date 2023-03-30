@@ -4,9 +4,7 @@ get:
   summary: Historical Data
   description: Get data on all recently completed trades
   operationId: trades
-  security:
-    - api_key: []
-    - basic_auth: []
+  security: []
   parameters:
     - name: market_pair
       in: path

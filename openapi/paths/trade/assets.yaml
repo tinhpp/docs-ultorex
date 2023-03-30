@@ -4,9 +4,7 @@ get:
   summary: Market Info
   description: Get detailed summary for each currency available on the exchange
   operationId: marketInfo
-  security:
-    - api_key: []
-    - basic_auth: []
+  security: []
   responses:
     '200':
       description: OK

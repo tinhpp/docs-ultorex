@@ -3,10 +3,8 @@ get:
     - Trade
   summary: Summary
   description: Get market data for all tickers and all market pairs
+  security: []
   operationId: summary
-  security:
-    - api_key: []
-    - basic_auth: []
   responses:
     '200':
       description: OK

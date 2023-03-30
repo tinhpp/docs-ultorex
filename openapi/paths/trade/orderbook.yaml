@@ -4,9 +4,7 @@ get:
   summary: 'Historical Trades'
   description: 'Get a complete level 2 order book'
   operationId: orderbook
-  security:
-    - api_key: []
-    - basic_auth: []
+  security: []
   parameters:
     - name: market_pair
       in: path

@@ -4,9 +4,7 @@ get:
   summary: Order book depth details
   description: Get 24-hour pricing and volume summary for each market pair
   operationId: ticker
-  security:
-    - api_key: []
-    - basic_auth: []
+  security: []
   responses:
     '200':
       description: OK
