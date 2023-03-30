@@ -1,0 +1,63 @@
+get:
+  tags:
+    - Trade
+  summary: Historical Trades
+  description: Get a complete level 2 order book
+  operationId: orderbook
+  parameters:
+    - name: market_pair
+      in: path
+      description: Market Pair
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          title: Scalars
+          properties:
+            depth:
+              description: 'Orders depth quantity: [0, 100, 200, 500...]. 0 returns full depth. Depth = 100 means 50 for each bid/ask side.'
+              type: integer
+              format: int32
+              example: 0
+            level:
+              description: Level
+              type: integer
+              format: int32
+              example: 2
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                description: Request Status
+                type: integer
+                format: int32
+                example: 0
+              data:
+                  title: data
+                  type: object
+                  properties:
+                    timestamp:
+                      type: string
+                      description: Unix timestamp in milliseconds for when the last updated time occurred.
+                      example: '1680149427430'
+                    asks:
+                      type: array
+                      description: An array containing 2 elements. The ask price and quantity for each ask order
+                      example: ["28526.75","0.004853"]
+                    bids:
+                      type: array
+                      description: An array containing 2 elements. The offer price and quantity for each bid order
+                      example: ["28560.34","0.001785"]
+    '403': 
+      description: Parameter error
+    '500': 
+      description: Internal server error

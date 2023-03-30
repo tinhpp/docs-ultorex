@@ -1,0 +1,67 @@
+get:
+  tags:
+    - Trade
+  summary: Market Info
+  description: Get detailed summary for each currency available on the exchange
+  operationId: marketInfo
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                description: Request Status
+                type: integer
+                format: int32
+                example: 0
+              data:
+                  title: data
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      '<COIN_NAME>':
+                        description: Coin Name
+                        type: object
+                        properties:
+                          name:
+                            type: string
+                            description: Chain Name
+                            examples: 
+                              - 'polygon'
+                              - 'bitcoin'
+                          can_withdraw:
+                            type: boolean
+                            description: Enable Withdraw
+                            examples: 
+                              - true
+                              - false
+                          can_deposit:
+                            type: boolean
+                            description: Enable Deposit
+                            examples: 
+                              - true
+                              - false
+                          min_withdraw:
+                            type: string
+                            description: Min Withdraw
+                            examples: 
+                              - '15.00'
+                              - '0.1'
+                          max_withdraw:
+                            type: string
+                            description: Max Withdraw
+                            examples: 
+                              - '100.00'
+                              - '5.00'
+                          unified_cryptoasset_id:
+                            type: string
+                            description: Unified cryptoasset id
+                            examples: 
+                              - '3890'
+                              - '1.00'
+    '500': 
+      description: Internal server error

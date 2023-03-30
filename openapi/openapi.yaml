@@ -1,41 +1,31 @@
 openapi: 3.1.0
 info:
   version: 1.0.0
-  title: Example.com
-  termsOfService: 'https://example.com/terms/'
+  title: 'Ultorex API documentation'
+  termsOfService: 'https://ultorex.io/'
   contact:
-    email: contact@example.com
-    url: 'http://example.com/contact'
-  license:
-    name: Apache 2.0
-    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+    email: 'support@ultorex.io'
+    url: 'https://ultorex.io'
   x-logo:
-    url: 'https://redocly.github.io/openapi-template/logo.png'
+    url: 'https://ultorex-public-setting-files.s3.ap-southeast-1.amazonaws.com/logo.png'
   description:
     $ref: ./info-description.md
 tags:
-  - name: Echo
-    description: Example echo operations.
-  - name: User
-    description: Operations about users.
-  - name: Tag
-    description: This is a tag description.
+  - name: Trade
+    description: Trading
 servers:
-  - url: 'https://{tenant}/api/v1'
-    variables:
-      tenant:
-        default: www
-        description: Your tenant id
-  - url: 'https://example.com/api/v1'
+  - url: 'https://api.ultorex.io/api'
 paths:
-  '/users/{username}':
-    $ref: 'paths/users_{username}.yaml'
-  /echo:
-    $ref: paths/echo.yaml
-  /pathItem:
-    $ref: paths/path-item.yaml
-  /pathItemWithExamples:
-    $ref: paths/path-item-with-examples.yaml
+  /coinmarketcap/summary:
+    $ref: paths/trade/summary.yaml
+  /coinmarketcap/assets:
+    $ref: paths/trade/assets.yaml
+  /coinmarketcap/ticker:
+    $ref: paths/trade/ticker.yaml
+  /coinmarketcap/orderbook/{market_pair}:
+    $ref: paths/trade/orderbook.yaml
+  /coinmarketcap/trades/{market_pair}:
+    $ref: paths/trade/trades.yaml
 components:
   securitySchemes:
     main_auth:

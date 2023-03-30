@@ -1,0 +1,52 @@
+get:
+  tags:
+    - Trade
+  summary: Order book depth details
+  description: Get 24-hour pricing and volume summary for each market pair
+  operationId: ticker
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                description: Request Status
+                type: integer
+                format: int32
+                example: 0
+              data:
+                title: data
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '<PAIR_NAME>':
+                      description: xxx
+                      type: object
+                      properties:
+                        last_price:
+                          type: string
+                          description: Last transacted price of base currency based on given target currency (unit in base or target)
+                          example: '0.031100'
+                        base_volume:
+                          type: string
+                          description: 24 hour trading volume for the pair (unit in base)
+                          example: '98662.000000'
+                        quote_volume:
+                          type: string
+                          description: 24 hour trading volume for the pair (unit in target)
+                          example: '2988.825685'
+                        base_id:
+                          type: string
+                          description: Base id
+                          example: '3835'
+                        isFrozen:
+                          type: string
+                          description: Is Frozen
+                          example: '0'
+
+    '500': 
+      description: Internal server error

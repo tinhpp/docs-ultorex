@@ -1,0 +1,71 @@
+get:
+  tags:
+    - Trade
+  summary: Summary
+  description: Get market data for all tickers and all market pairs
+  operationId: summary
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                description: Request Status
+                type: integer
+                format: int32
+                example: 0
+              data:
+                  title: data
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      trading_pairs:
+                        type: string
+                        description: Currency pair
+                        example: 'AVAX_BTC'
+                      base_currency:
+                        description: Symbol/currency code of base pair, eg. BTC
+                        type: string
+                        example: 'AVAX'
+                      quote_currency:
+                        description: Symbol/currency code of target pair, eg. ETH
+                        type: string
+                        example: 'BTC'
+                      last_price:
+                        description: Last transacted price of base currency based on given target currency
+                        type: number
+                        example: 0.0008005
+                      lowest_ask:
+                        description: Current lowest ask price
+                        type: number
+                        example: 0.0008005
+                      highest_bid:
+                        description: Current highest bid price
+                        type: number
+                        example: 0.0008004
+                      base_volume:
+                        description: Transaction amount in base pair volume.
+                        type: number
+                        example: 7953.7300000
+                      quote_volume:
+                        description: Transaction amount in quote pair volume.
+                        type: number
+                        example: 6.3956518
+                      price_change_percent_24h:
+                        description: Price change percent 24h
+                        type: number
+                        example: -0.95
+                      highest_price_24h:
+                        description: Rolling 24-hours highest transaction price
+                        type: number
+                        example: 0.0008208
+                      lowest_price_24h:
+                        description: Rolling 24-hours lowest transaction price.
+                        type: number 
+                        example: 0.0007844
+    '500': 
+      description: Internal server error

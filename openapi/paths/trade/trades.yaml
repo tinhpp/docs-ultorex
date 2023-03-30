@@ -1,0 +1,64 @@
+get:
+  tags:
+    - Trade
+  summary: Historical Data
+  description: Get data on all recently completed trades
+  operationId: trades
+  parameters:
+    - name: market_pair
+      in: path
+      description: Market Pair
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                description: Request Status
+                type: integer
+                format: int32
+                example: 0
+              data:
+                  title: data
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      '<Market_Pair>':
+                        description: Market Name
+                        type: object
+                        properties:
+                          trade_id:
+                            type: string
+                            description: A unique ID associated with the trade for the currency pair transaction
+                            example: '1090973310281603072'
+                          price:
+                            type: string
+                            description: Transaction price in base pair volume
+                            example: '28563.55'
+                          base_volume:
+                            type: string
+                            description: Transaction amount in base pair volume.
+                            example: '0.001927'
+                          quote_volume:
+                            type: string
+                            description: Transaction amount in target pair volume.
+                            example: '55.05'
+                          timestamp:
+                            type: string
+                            description: Unix timestamp in milliseconds for when the transaction occurred.
+                            example: '1680149906475'
+                          type:
+                            type: string
+                            description: Used to determine the type of the transaction that was completed.
+                            example: 'sell' 
+                            '403': 
+                              description: Parameter error
+                            '500': 
+                              description: Internal server error
