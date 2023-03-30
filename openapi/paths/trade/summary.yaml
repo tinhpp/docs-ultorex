@@ -4,6 +4,9 @@ get:
   summary: Summary
   description: Get market data for all tickers and all market pairs
   operationId: summary
+  security:
+    - api_key: []
+    - basic_auth: []
   responses:
     '200':
       description: OK
@@ -68,4 +71,4 @@ get:
                         type: number 
                         example: 0.0007844
     '500': 
-      description: Internal server error
+      description: 'Internal server error'

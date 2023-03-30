@@ -4,6 +4,9 @@ get:
   summary: Market Info
   description: Get detailed summary for each currency available on the exchange
   operationId: marketInfo
+  security:
+    - api_key: []
+    - basic_auth: []
   responses:
     '200':
       description: OK
@@ -64,4 +67,4 @@ get:
                               - '3890'
                               - '1.00'
     '500': 
-      description: Internal server error
+      description: 'Internal server error'

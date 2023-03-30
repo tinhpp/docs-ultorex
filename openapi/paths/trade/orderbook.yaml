@@ -1,9 +1,12 @@
 get:
   tags:
     - Trade
-  summary: Historical Trades
-  description: Get a complete level 2 order book
+  summary: 'Historical Trades'
+  description: 'Get a complete level 2 order book'
   operationId: orderbook
+  security:
+    - api_key: []
+    - basic_auth: []
   parameters:
     - name: market_pair
       in: path
@@ -58,6 +61,6 @@ get:
                       description: An array containing 2 elements. The offer price and quantity for each bid order
                       example: ["28560.34","0.001785"]
     '403': 
-      description: Parameter error
+      description: 'Parameter error'
     '500': 
-      description: Internal server error
+      description: 'Internal server error'

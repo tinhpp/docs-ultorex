@@ -4,6 +4,9 @@ get:
   summary: Historical Data
   description: Get data on all recently completed trades
   operationId: trades
+  security:
+    - api_key: []
+    - basic_auth: []
   parameters:
     - name: market_pair
       in: path
@@ -58,7 +61,7 @@ get:
                             type: string
                             description: Used to determine the type of the transaction that was completed.
                             example: 'sell' 
-                            '403': 
-                              description: Parameter error
-                            '500': 
-                              description: Internal server error
+    '403': 
+      description: 'Parameter error'
+    '500': 
+      description: 'Internal server error'
